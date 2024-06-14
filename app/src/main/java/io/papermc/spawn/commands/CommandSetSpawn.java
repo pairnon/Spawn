@@ -23,23 +23,28 @@ public class CommandSetSpawn implements CommandExecutor {
             return true;
         }
 
-        if (sender instanceof Player) {
-            Player player = (Player) sender;
-            Location loc = player.getLocation();
-
-            World world = player.getWorld();
-
-            if (world == null || !world.getName().equals("world")) {
-                Broadcasting.sendErrorResponse(player, "You must be in the overworld to execute this command.");
-                return true;
-            }
-
-            PersistentDataContainer pdc = world.getPersistentDataContainer();
-
-            pdc.set(new NamespacedKey(Main.getPlugin(), "spawncoordx"), PersistentDataType.DOUBLE, loc.getX());
-            pdc.set(new NamespacedKey(Main.getPlugin(), "spawncoordy"), PersistentDataType.DOUBLE, loc.getY());
-            pdc.set(new NamespacedKey(Main.getPlugin(), "spawncoordz"), PersistentDataType.DOUBLE, loc.getZ());
+        if (!(sender instanceof Player)) {
+            Broadcasting.sendErrorResponse(sender, "You cannot execute this command from the server console.");
+            return true;
         }
+
+        Player player = (Player) sender;
+        Location loc = player.getLocation();
+
+        World world = player.getWorld();
+
+        if (world == null || !world.getName().equals("world")) {
+            Broadcasting.sendErrorResponse(player, "You must be in the overworld to execute this command.");
+            return true;
+        }
+
+        PersistentDataContainer pdc = world.getPersistentDataContainer();
+
+        pdc.set(new NamespacedKey(Main.getPlugin(), "spawncoordx"), PersistentDataType.DOUBLE, loc.getX());
+        pdc.set(new NamespacedKey(Main.getPlugin(), "spawncoordy"), PersistentDataType.DOUBLE, loc.getY());
+        pdc.set(new NamespacedKey(Main.getPlugin(), "spawncoordz"), PersistentDataType.DOUBLE, loc.getZ());
+
+        Broadcasting.sendSuccessResponse(player, "Set server spawn to " + loc.toString());
 
 
 

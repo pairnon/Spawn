@@ -20,23 +20,25 @@ public class CommandSpawn implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
 
-        if (sender instanceof Player) {
-            Player player = (Player) sender;
-
-            World world = Bukkit.getWorld("world");
-
-            PersistentDataContainer pdc = world.getPersistentDataContainer();
-
-            double x = pdc.get(new NamespacedKey(Main.getPlugin(), "spawncoordx"), PersistentDataType.DOUBLE);
-            double y = pdc.get(new NamespacedKey(Main.getPlugin(), "spawncoordy"), PersistentDataType.DOUBLE);
-            double z = pdc.get(new NamespacedKey(Main.getPlugin(), "spawncoordz"), PersistentDataType.DOUBLE);
-
-            Location loc = new Location(world, x, y, z);
-
-            player.teleport(loc);
-            Broadcasting.sendSuccessResponse(player, "Teleported you to spawn!");
-
+        if (!(sender instanceof Player)) {
+            Broadcasting.sendErrorResponse(sender, "You cannot execute this command from the server console.");
+            return true;
         }
+        
+        Player player = (Player) sender;
+
+        World world = Bukkit.getWorld("world");
+
+        PersistentDataContainer pdc = world.getPersistentDataContainer();
+
+        double x = pdc.get(new NamespacedKey(Main.getPlugin(), "spawncoordx"), PersistentDataType.DOUBLE);
+        double y = pdc.get(new NamespacedKey(Main.getPlugin(), "spawncoordy"), PersistentDataType.DOUBLE);
+        double z = pdc.get(new NamespacedKey(Main.getPlugin(), "spawncoordz"), PersistentDataType.DOUBLE);
+
+        Location loc = new Location(world, x, y, z);
+
+        player.teleport(loc);
+        Broadcasting.sendSuccessResponse(player, "Teleported you to spawn!");
 
         return true;
     }
