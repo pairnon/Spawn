@@ -31,6 +31,14 @@ public class CommandSpawn implements CommandExecutor {
 
         PersistentDataContainer pdc = world.getPersistentDataContainer();
 
+
+        if (!pdc.has(new NamespacedKey(Main.getPlugin(), "spawncoordx")) || !pdc.has(new NamespacedKey(Main.getPlugin(), "spawncoordy")) || !pdc.has(new NamespacedKey(Main.getPlugin(), "spawncoordz"))) {
+            Location defaultSpawnLocation = world.getSpawnLocation();
+            player.teleport(defaultSpawnLocation);
+            Broadcasting.sendSuccessResponse(player, "Teleported you to spawn!");
+            return true;
+        }
+
         double x = pdc.get(new NamespacedKey(Main.getPlugin(), "spawncoordx"), PersistentDataType.DOUBLE);
         double y = pdc.get(new NamespacedKey(Main.getPlugin(), "spawncoordy"), PersistentDataType.DOUBLE);
         double z = pdc.get(new NamespacedKey(Main.getPlugin(), "spawncoordz"), PersistentDataType.DOUBLE);
