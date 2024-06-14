@@ -44,6 +44,8 @@ public class CommandSetSpawn implements CommandExecutor {
         pdc.set(new NamespacedKey(Main.getPlugin(), "spawncoordy"), PersistentDataType.DOUBLE, loc.getY());
         pdc.set(new NamespacedKey(Main.getPlugin(), "spawncoordz"), PersistentDataType.DOUBLE, loc.getZ());
 
+        world.setSpawnLocation(loc);
+
         Broadcasting.sendSuccessResponse(player, "Set server spawn to " + loc.toString());
 
 
