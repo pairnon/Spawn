@@ -1,5 +1,6 @@
 package io.papermc.spawn.commands;
 
+import org.bukkit.GameRule;
 import org.bukkit.Location;
 import org.bukkit.NamespacedKey;
 import org.bukkit.World;
@@ -45,6 +46,12 @@ public class CommandSetSpawn implements CommandExecutor {
         pdc.set(new NamespacedKey(Main.getPlugin(), "spawncoordz"), PersistentDataType.DOUBLE, loc.getZ());
 
         world.setSpawnLocation(loc);
+
+        int worldSpawnRadius = world.getGameRuleValue(GameRule.SPAWN_RADIUS);
+        if (worldSpawnRadius != 0) {
+            world.setGameRule(GameRule.SPAWN_RADIUS, 0);
+            Broadcasting.sendMessageResponse(player, "Set spawn radius to 0 from " + worldSpawnRadius + ".");
+        }
 
         Broadcasting.sendSuccessResponse(player, "Set server spawn to " + loc.toString());
 
