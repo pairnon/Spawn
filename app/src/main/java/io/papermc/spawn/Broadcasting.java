@@ -42,10 +42,6 @@ public class Broadcasting {
         startMessageLoop();
     }
 
-    public static void sendAlert(Player p, String message) {
-        p.sendMessage(Component.text("[ALERT] " + message, NamedTextColor.RED));
-    }
-
     public static void sendMessageResponse(CommandSender c, String message) {
         c.sendMessage(Component.text(message, NamedTextColor.GOLD));
     }
