@@ -9,6 +9,9 @@ commands:
   setspawn:
     description: Set server spawn point
     usage: setspawn
+  setwarnradius:
+    description: Set warning radius in blocks from spawn
+    usage: setwarnradius
   spawn:
     description: Teleport to spawn
     usage: spawn

@@ -5,6 +5,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import io.papermc.spawn.commands.CommandSetSpawn;
+import io.papermc.spawn.commands.CommandSetWarnRadius;
 import io.papermc.spawn.commands.CommandSpawn;
 
 public class Main extends JavaPlugin implements Listener {
@@ -21,6 +22,7 @@ public class Main extends JavaPlugin implements Listener {
         plugin = this;
 
         this.getCommand("setspawn").setExecutor(new CommandSetSpawn());
+        this.getCommand("setwarnradius").setExecutor(new CommandSetWarnRadius());
         this.getCommand("spawn").setExecutor(new CommandSpawn());
     }
     
