@@ -1,4 +1,4 @@
-package io.papermc.spawn;
+package io.papermc.spawn.classes;
 
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
