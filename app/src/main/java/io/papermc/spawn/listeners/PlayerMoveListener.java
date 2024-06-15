@@ -42,6 +42,7 @@ public class PlayerMoveListener implements Listener {
         double distanceFromSpawn = getDistanceIgnoringY(playerLoc, spawnLoc);
 
         if (Math.abs(distanceFromSpawn - warningRadius) < 1) {
+            Broadcasting.pushToMessageQueue(new Message(player, "You are now " + warningRadius + " blocks from spawn.", 0));
             Broadcasting.pushToMessageQueue(new Message(player, "You have reached the spawn region boundary!", 2));
         }
 
