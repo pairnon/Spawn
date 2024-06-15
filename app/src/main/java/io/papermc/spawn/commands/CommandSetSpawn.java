@@ -53,7 +53,9 @@ public class CommandSetSpawn implements CommandExecutor {
             Broadcasting.sendMessageResponse(player, "Set spawn radius to 0 from " + worldSpawnRadius + ".");
         }
 
-        Broadcasting.sendSuccessResponse(player, "Set server spawn to " + loc.toString());
+        String coords = (int)loc.getX() + ", " + (int)loc.getY() + ", " + (int)loc.getZ();
+
+        Broadcasting.sendSuccessResponse(player, "Set server spawn to " + coords + ".");
 
 
 
