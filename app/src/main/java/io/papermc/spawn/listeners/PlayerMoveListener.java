@@ -12,6 +12,7 @@ import org.bukkit.persistence.PersistentDataType;
 
 import io.papermc.spawn.Broadcasting;
 import io.papermc.spawn.Main;
+import io.papermc.spawn.classes.Message;
 
 public class PlayerMoveListener implements Listener {
     
@@ -41,7 +42,7 @@ public class PlayerMoveListener implements Listener {
         double distanceFromSpawn = getDistanceIgnoringY(playerLoc, spawnLoc);
 
         if (Math.abs(distanceFromSpawn - warningRadius) < 1) {
-            Broadcasting.pushToMessageQueue(player, "You have reached the spawn region boundary!");
+            Broadcasting.pushToMessageQueue(new Message(player, "You have reached the spawn region boundary!", 2));
         }
 
     }

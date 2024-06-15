@@ -3,8 +3,8 @@ package io.papermc.spawn;
 import java.util.List;
 import java.util.ArrayList;
 
+import org.bukkit.Sound;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
@@ -14,11 +14,12 @@ import net.kyori.adventure.text.format.NamedTextColor;
 
 public class Broadcasting {
 
+    public static final Sound MESSAGE_SOUND = Sound.BLOCK_NOTE_BLOCK_SNARE;
+
     private static ArrayList<Message> messages;
     private static ArrayList<Message> tempMessageQueue;
 
-    public static void pushToMessageQueue(Player p, String message) {
-        Message m = new Message(p, message);
+    public static void pushToMessageQueue(Message m) {
         messages.add(m);
     }
 
