@@ -34,11 +34,17 @@ public class PlayerMoveListener implements Listener {
         Location playerLoc = player.getLocation();
         Location spawnLoc = world.getSpawnLocation();
 
-        double distanceFromSpawn = playerLoc.distance(spawnLoc);
+        double distanceFromSpawn = getDistanceIgnoringY(playerLoc, spawnLoc);
 
         if (Math.abs(distanceFromSpawn - warningRadius) < 1) {
             Broadcasting.sendAlert(player, "You have left the spawn region!");
         }
 
+    }
+
+    private double getDistanceIgnoringY(Location loc1, Location loc2) {
+        double xDiff = Math.abs(loc1.getX() - loc2.getX());
+        double zDiff = Math.abs(loc1.getZ() - loc2.getZ());
+        return Math.sqrt(xDiff * xDiff + zDiff * zDiff);
     }
 }
