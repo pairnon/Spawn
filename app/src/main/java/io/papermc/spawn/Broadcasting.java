@@ -38,6 +38,7 @@ public class Broadcasting {
     public static void initializeAlertQueue() {
         alerts = new ArrayList<Alert>();
         tempQueue = new ArrayList<Alert>();
+        startAlertLoop();
     }
 
     public static void sendAlert(Player p, String message) {

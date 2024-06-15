@@ -23,7 +23,6 @@ public class Main extends JavaPlugin implements Listener {
         plugin = this;
 
         Broadcasting.initializeAlertQueue();
-        Broadcasting.startAlertLoop();
 
         getServer().getPluginManager().registerEvents(new PlayerMoveListener(), this);
 
