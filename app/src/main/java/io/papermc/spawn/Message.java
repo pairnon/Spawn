@@ -7,10 +7,10 @@ import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 
 @SuppressWarnings("deprecation")
-public class Alert {
+public class Message {
 
     private String playerDisplayName;
-    private String message;
+    private String text;
 
     public String getPlayerDisplayName() {
         return playerDisplayName;
@@ -20,12 +20,12 @@ public class Alert {
         this.playerDisplayName = playerDisplayName;
     }
 
-    public String getMessage() {
-        return message;
+    public String getText() {
+        return text;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setText(String message) {
+        this.text = message;
     }
 
     @Override
@@ -33,22 +33,22 @@ public class Alert {
         if (obj == this) {
             return true;
         }
-        if (!(obj instanceof Alert)) {
+        if (!(obj instanceof Message)) {
             return false;
         }
-        Alert alert = (Alert) obj;
-        return (playerDisplayName.equals(alert.getPlayerDisplayName()) && message.equals(alert.getMessage()));
+        Message message = (Message) obj;
+        return (playerDisplayName.equals(message.getPlayerDisplayName()) && text.equals(message.getText()));
     }
 
-    public Alert(Player player, String message) {
+    public Message(Player player, String message) {
         playerDisplayName = player.getDisplayName();
-        this.message = message;
+        this.text = message;
     }
 
     public void send() {
         Player player = Bukkit.getPlayer(playerDisplayName);
         if (player == null) { return; }
-        player.sendMessage(Component.text("[ALERT] " + message, NamedTextColor.RED));
+        player.sendMessage(Component.text("[MESSAGE] " + text, NamedTextColor.GOLD));
     }
     
 }

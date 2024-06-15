@@ -13,32 +13,32 @@ import net.kyori.adventure.text.format.NamedTextColor;
 
 public class Broadcasting {
 
-    private static ArrayList<Alert> alerts;
-    private static ArrayList<Alert> tempQueue;
+    private static ArrayList<Message> messages;
+    private static ArrayList<Message> tempMessageQueue;
 
-    public static void pushToAlertQueue(Player p, String message) {
-        Alert alert = new Alert(p, message);
-        alerts.add(alert);
+    public static void pushToMessageQueue(Player p, String message) {
+        Message m = new Message(p, message);
+        messages.add(m);
     }
 
-    public static void startAlertLoop() {
+    public static void startMessageLoop() {
         new BukkitRunnable() {
             @Override
             public void run() {
-                tempQueue = removeDuplicates(alerts);
-                for (Alert alert : tempQueue) {
-                    alert.send();
+                tempMessageQueue = removeDuplicates(messages);
+                for (Message message : tempMessageQueue) {
+                    message.send();
                 }
-                alerts.clear();
-                tempQueue.clear();
+                messages.clear();
+                tempMessageQueue.clear();
             }
         }.runTaskTimer(JavaPlugin.getPlugin(Main.class), 0L, 20L);
     }
 
-    public static void initializeAlertQueue() {
-        alerts = new ArrayList<Alert>();
-        tempQueue = new ArrayList<Alert>();
-        startAlertLoop();
+    public static void initializeMessageQueue() {
+        messages = new ArrayList<Message>();
+        tempMessageQueue = new ArrayList<Message>();
+        startMessageLoop();
     }
 
     public static void sendAlert(Player p, String message) {

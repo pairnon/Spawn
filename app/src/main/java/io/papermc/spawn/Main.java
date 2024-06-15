@@ -22,7 +22,7 @@ public class Main extends JavaPlugin implements Listener {
         Bukkit.getPluginManager().registerEvents(this, this);
         plugin = this;
 
-        Broadcasting.initializeAlertQueue();
+        Broadcasting.initializeMessageQueue();
 
         getServer().getPluginManager().registerEvents(new PlayerMoveListener(), this);
 
