@@ -24,6 +24,7 @@ public class CommandSetWarnRadius implements CommandExecutor {
 
         if (args.length==0) {
             Broadcasting.sendErrorResponse(sender, "You must specify a warning radius in number of blocks from spawn.");
+            return true;
         }
 
         int warningRadius = 0;
