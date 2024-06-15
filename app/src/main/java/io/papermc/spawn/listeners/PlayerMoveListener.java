@@ -37,7 +37,7 @@ public class PlayerMoveListener implements Listener {
         double distanceFromSpawn = getDistanceIgnoringY(playerLoc, spawnLoc);
 
         if (Math.abs(distanceFromSpawn - warningRadius) < 1) {
-            Broadcasting.sendAlert(player, "You have left the spawn region!");
+            Broadcasting.pushToAlertQueue(player, "You have left the spawn region!");
         }
 
     }

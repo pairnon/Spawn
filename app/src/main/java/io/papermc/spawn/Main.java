@@ -22,6 +22,9 @@ public class Main extends JavaPlugin implements Listener {
         Bukkit.getPluginManager().registerEvents(this, this);
         plugin = this;
 
+        Broadcasting.initializeAlertQueue();
+        Broadcasting.startAlertLoop();
+
         getServer().getPluginManager().registerEvents(new PlayerMoveListener(), this);
 
         this.getCommand("setspawn").setExecutor(new CommandSetSpawn());
