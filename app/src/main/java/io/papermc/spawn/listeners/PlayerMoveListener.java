@@ -19,6 +19,10 @@ public class PlayerMoveListener implements Listener {
     public void onPlayerMove(PlayerMoveEvent event) {
 
         Player player = event.getPlayer();
+
+        double distanceMoved = event.getFrom().distance(event.getTo());
+        if (distanceMoved < 0.1) { return; }
+
         World world = player.getWorld();
 
         if (world == null || !world.getName().equals("world")) { return; }
