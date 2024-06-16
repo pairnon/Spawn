@@ -34,7 +34,7 @@ public class Broadcasting {
                 messages.clear();
                 tempMessageQueue.clear();
             }
-        }.runTaskTimer(JavaPlugin.getPlugin(Main.class), 0L, 100L);
+        }.runTaskTimer(JavaPlugin.getPlugin(Main.class), 0L, 40L);
     }
 
     public static void initializeMessageQueue() {
