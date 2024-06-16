@@ -12,6 +12,9 @@ commands:
   setwarnradius:
     description: Set warning radius in blocks from spawn
     usage: setwarnradius
+  removewarnradius:
+    description: Remove the spawn warning radius
+    usage: removewarnradius
   spawn:
     description: Teleport to spawn
     usage: spawn
