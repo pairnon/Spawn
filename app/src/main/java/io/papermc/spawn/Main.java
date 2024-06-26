@@ -15,6 +15,8 @@ public class Main extends JavaPlugin implements Listener {
 
     private static Main plugin;
 
+    public static final int MAX_BUILD_HEIGHT = 319;
+
     public static Main getPlugin() {
         return plugin;
     }
