@@ -36,11 +36,14 @@ public class CommandWild implements CommandExecutor {
 
 
         Location location = getSafeRandomLocation(world);
+        if (location == null) {
+            Broadcasting.sendErrorResponse(player, "Could not find a safe location.");
+            return true;
+        }
         location.setY(location.getY() + 1);
         player.teleport(location);
         
-        Broadcasting.sendSuccessResponse(player, "Teleporting you...");
-
+        Broadcasting.sendSuccessResponse(player, "Teleported you to a random location.");
         return true;
 
     }
