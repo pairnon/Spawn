@@ -1,6 +1,7 @@
 package io.papermc.spawn;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -16,6 +17,8 @@ public class Main extends JavaPlugin implements Listener {
     private static Main plugin;
 
     public static final int MAX_BUILD_HEIGHT = 319;
+    public static final int WILD_COMMAND_MAX_TRIES = 50;
+    public static final Material[] UNSAFE_MATERIALS = {Material.WATER, Material.LAVA};
 
     public static Main getPlugin() {
         return plugin;

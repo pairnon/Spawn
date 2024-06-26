@@ -34,17 +34,44 @@ public class CommandWild implements CommandExecutor {
             return true;
         }
 
+
+        Location location = getSafeRandomLocation(world);
+        location.setY(location.getY() + 1);
+        player.teleport(location);
+        
+        Broadcasting.sendSuccessResponse(player, "Teleporting you...");
+
+        return true;
+
+    }
+
+    private Location getSafeRandomLocation(World world) {
+        Location possibleLocation = getRandomLocation(world);
+        int counter = 0;
+        do {
+            if (isSafeLocation(possibleLocation)) {
+                return possibleLocation;
+            }
+            possibleLocation = getRandomLocation(world);
+            counter++;
+        } while (counter < Main.WILD_COMMAND_MAX_TRIES);
+        return null;
+    }
+
+    private Location getRandomLocation(World world) {
         Random rand = new Random();
         int randomX = rand.nextInt(201) - 100;
         int randomZ = rand.nextInt(201) - 100;
         
         Location randomLocation = new Location(world, randomX, 0, randomZ);
         Location surfaceLocation = getSurfaceLocation(randomLocation);
-        surfaceLocation.setY(surfaceLocation.getY() + 1);
-        player.teleport(surfaceLocation);
-        
-        Broadcasting.sendSuccessResponse(player, "Teleporting you...");
+        return surfaceLocation;
+    }
 
+    private boolean isSafeLocation(Location location) {
+        for (Material material : Main.UNSAFE_MATERIALS) {
+            if (location.getBlock().getType().equals(material)) { return false; }
+        }
         return true;
     }
 
