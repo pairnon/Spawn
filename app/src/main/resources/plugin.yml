@@ -18,3 +18,7 @@ commands:
   spawn:
     description: Teleport to spawn
     usage: spawn
+  wild:
+    description: Teleport to random location
+    usage: wild
+    aliases: [rtp]
