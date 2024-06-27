@@ -22,3 +22,6 @@ commands:
     description: Teleport to random location
     usage: wild
     aliases: [rtp]
+  setwildradius:
+    description: Set /wild radius in blocks from spawn
+    usage: setwildradius <blocks>

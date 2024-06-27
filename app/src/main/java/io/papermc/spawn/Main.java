@@ -9,6 +9,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import io.papermc.spawn.commands.CommandRemoveWarnRadius;
 import io.papermc.spawn.commands.CommandSetSpawn;
 import io.papermc.spawn.commands.CommandSetWarnRadius;
+import io.papermc.spawn.commands.CommandSetWildRadius;
 import io.papermc.spawn.commands.CommandSpawn;
 import io.papermc.spawn.commands.CommandWild;
 import io.papermc.spawn.listeners.PlayerMoveListener;
@@ -47,6 +48,12 @@ public class Main extends JavaPlugin implements Listener {
         this.getCommand("removewarnradius").setExecutor(new CommandRemoveWarnRadius());
         this.getCommand("spawn").setExecutor(new CommandSpawn());
         this.getCommand("wild").setExecutor(new CommandWild());
+        this.getCommand("setwildradius").setExecutor(new CommandSetWildRadius());
+    }
+
+    public void setWildRadius(int blocks) {
+        config.set("rtp-radius", blocks);
+        wildRadius = config.getInt("rtp-radius");
     }
     
 }
