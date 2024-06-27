@@ -2,6 +2,7 @@ package io.papermc.spawn;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -20,6 +21,10 @@ public class Main extends JavaPlugin implements Listener {
     public static final int WILD_COMMAND_MAX_TRIES = 50;
     public static final Material[] UNSAFE_MATERIALS = {Material.WATER, Material.LAVA};
 
+    public static int wildRadius = 0;
+    
+    private FileConfiguration config;
+
     public static Main getPlugin() {
         return plugin;
     }
@@ -29,6 +34,10 @@ public class Main extends JavaPlugin implements Listener {
         Bukkit.getPluginManager().registerEvents(this, this);
         plugin = this;
 
+        this.saveDefaultConfig();
+        config = this.getConfig();
+        wildRadius = config.getInt("rtp-radius");
+        
         Broadcasting.initializeMessageQueue();
 
         getServer().getPluginManager().registerEvents(new PlayerMoveListener(), this);
