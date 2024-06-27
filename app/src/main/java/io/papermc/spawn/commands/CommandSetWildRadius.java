@@ -26,6 +26,10 @@ public class CommandSetWildRadius implements CommandExecutor {
 
         try {
             wildRadius = Integer.parseInt(args[0]);
+            if (wildRadius < 0) {
+                Broadcasting.sendErrorResponse(sender, "Please enter a valid integer.");
+                return true;
+            }
         } catch (NumberFormatException e) {
             Broadcasting.sendErrorResponse(sender, "Please enter a valid integer.");
             return true;

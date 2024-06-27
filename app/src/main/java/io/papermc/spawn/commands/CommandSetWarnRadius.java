@@ -32,6 +32,10 @@ public class CommandSetWarnRadius implements CommandExecutor {
 
         try {
             warningRadius = Integer.parseInt(args[0]);
+            if (warningRadius < 0) {
+                Broadcasting.sendErrorResponse(sender, "Please enter a valid integer.");
+                return true;
+            }
         } catch (NumberFormatException e) {
             Broadcasting.sendErrorResponse(sender, "Please enter a valid integer.");
             return true;
