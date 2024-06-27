@@ -23,7 +23,8 @@ public class CommandSetWarnRadius implements CommandExecutor {
         }
 
         if (args.length==0) {
-            Broadcasting.sendErrorResponse(sender, "You must specify a warning radius in number of blocks from spawn.");
+            int warningRadius = getWarningRadius();
+            Broadcasting.sendMessageResponse(sender, "Warning radius is currently configured to " + warningRadius + " blocks.");
             return true;
         }
 
@@ -45,6 +46,15 @@ public class CommandSetWarnRadius implements CommandExecutor {
         Broadcasting.sendSuccessResponse(sender, "Set warning radius to " + warningRadius + " blocks.");
 
         return true;
+    }
+
+    private int getWarningRadius() {
+        World world = Bukkit.getWorld("world");
+        PersistentDataContainer pdc = world.getPersistentDataContainer();
+        if (!pdc.has(new NamespacedKey(Main.getPlugin(), "warningRadius"), PersistentDataType.INTEGER)) {
+            return -1;
+        }
+        return pdc.get(new NamespacedKey(Main.getPlugin(), "warningRadius"), PersistentDataType.INTEGER);    
     }
     
 }
