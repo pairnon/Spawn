@@ -26,6 +26,16 @@ public class CommandSpawn implements CommandExecutor {
         
         Player player = (Player) sender;
 
+        PersistentDataContainer playerPdc = player.getPersistentDataContainer();
+
+        if (playerPdc.has(new NamespacedKey(Main.getPlugin(), "teleportcooldown"))) {
+            int teleportCooldown = playerPdc.get(new NamespacedKey(Main.getPlugin(), "teleportcooldown"), PersistentDataType.INTEGER);
+            if (teleportCooldown != 0) {
+                Broadcasting.sendErrorResponse(player, "You must wait " + teleportCooldown + " seconds before teleporting.");
+                return true;
+            }
+        }
+
         World world = Bukkit.getWorld("world");
 
         PersistentDataContainer worldPdc = world.getPersistentDataContainer();
@@ -45,6 +55,8 @@ public class CommandSpawn implements CommandExecutor {
 
         player.teleport(loc);
         Broadcasting.sendSuccessResponse(player, "Teleported you to spawn!");
+
+        playerPdc.set(new NamespacedKey(Main.getPlugin(), "teleportcooldown"), PersistentDataType.INTEGER, Main.teleportCooldown);
 
         return true;
     }

@@ -23,6 +23,7 @@ public class Main extends JavaPlugin implements Listener {
     public static final Material[] UNSAFE_MATERIALS = {Material.WATER, Material.LAVA};
 
     public static int wildRadius = 0;
+    public static int teleportCooldown = 5;
     
     private FileConfiguration config;
 
