@@ -4,12 +4,15 @@ import java.util.Random;
 
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.NamespacedKey;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.persistence.PersistentDataContainer;
+import org.bukkit.persistence.PersistentDataType;
 
 import io.papermc.spawn.Broadcasting;
 import io.papermc.spawn.Main;
@@ -26,6 +29,16 @@ public class CommandWild implements CommandExecutor {
         }
 
         Player player = (Player) sender;
+
+        PersistentDataContainer playerPdc = player.getPersistentDataContainer();
+
+        if (playerPdc.has(new NamespacedKey(Main.getPlugin(), "teleportcooldown"))) {
+            int teleportCooldown = playerPdc.get(new NamespacedKey(Main.getPlugin(), "teleportcooldown"), PersistentDataType.INTEGER);
+            if (teleportCooldown != 0) {
+                Broadcasting.sendErrorResponse(player, "You must wait " + teleportCooldown + " seconds before teleporting.");
+                return true;
+            }
+        }
 
         World world = player.getWorld();
 
@@ -44,6 +57,9 @@ public class CommandWild implements CommandExecutor {
         player.teleport(location);
         
         Broadcasting.sendSuccessResponse(player, "Teleported you to a random location.");
+
+        playerPdc.set(new NamespacedKey(Main.getPlugin(), "teleportcooldown"), PersistentDataType.INTEGER, Main.teleportCooldown);
+
         return true;
 
     }
