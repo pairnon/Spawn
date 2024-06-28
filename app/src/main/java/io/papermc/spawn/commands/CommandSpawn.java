@@ -19,7 +19,6 @@ public class CommandSpawn implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
-
         if (!(sender instanceof Player)) {
             Broadcasting.sendErrorResponse(sender, "You cannot execute this command from the server console.");
             return true;
@@ -29,19 +28,18 @@ public class CommandSpawn implements CommandExecutor {
 
         World world = Bukkit.getWorld("world");
 
-        PersistentDataContainer pdc = world.getPersistentDataContainer();
+        PersistentDataContainer worldPdc = world.getPersistentDataContainer();
 
-
-        if (!pdc.has(new NamespacedKey(Main.getPlugin(), "spawncoordx")) || !pdc.has(new NamespacedKey(Main.getPlugin(), "spawncoordy")) || !pdc.has(new NamespacedKey(Main.getPlugin(), "spawncoordz"))) {
+        if (!worldPdc.has(new NamespacedKey(Main.getPlugin(), "spawncoordx")) || !worldPdc.has(new NamespacedKey(Main.getPlugin(), "spawncoordy")) || !worldPdc.has(new NamespacedKey(Main.getPlugin(), "spawncoordz"))) {
             Location defaultSpawnLocation = world.getSpawnLocation();
             player.teleport(defaultSpawnLocation);
             Broadcasting.sendSuccessResponse(player, "Teleported you to spawn!");
             return true;
         }
 
-        double x = pdc.get(new NamespacedKey(Main.getPlugin(), "spawncoordx"), PersistentDataType.DOUBLE);
-        double y = pdc.get(new NamespacedKey(Main.getPlugin(), "spawncoordy"), PersistentDataType.DOUBLE);
-        double z = pdc.get(new NamespacedKey(Main.getPlugin(), "spawncoordz"), PersistentDataType.DOUBLE);
+        double x = worldPdc.get(new NamespacedKey(Main.getPlugin(), "spawncoordx"), PersistentDataType.DOUBLE);
+        double y = worldPdc.get(new NamespacedKey(Main.getPlugin(), "spawncoordy"), PersistentDataType.DOUBLE);
+        double z = worldPdc.get(new NamespacedKey(Main.getPlugin(), "spawncoordz"), PersistentDataType.DOUBLE);
 
         Location loc = new Location(world, x, y, z);
 
