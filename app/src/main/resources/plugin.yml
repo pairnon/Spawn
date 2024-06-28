@@ -25,3 +25,6 @@ commands:
   setwildradius:
     description: Set /wild radius in blocks from spawn
     usage: setwildradius <blocks>
+  setteleportcooldown:
+    description: Set teleport cooldown in seconds
+    usage: setteleportcooldown <seconds>

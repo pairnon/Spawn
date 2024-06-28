@@ -7,7 +7,7 @@ import org.bukkit.command.CommandSender;
 import io.papermc.spawn.Broadcasting;
 import io.papermc.spawn.Main;
 
-public class CommandSetWildRadius implements CommandExecutor {
+public class CommandSetTeleportCooldown implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -18,15 +18,15 @@ public class CommandSetWildRadius implements CommandExecutor {
         }
 
         if (args.length==0) {
-            Broadcasting.sendMessageResponse(sender, "Wild radius is currently configured to " + Main.wildRadius + " blocks.");
+            Broadcasting.sendMessageResponse(sender, "Teleport cooldown is currently configured to " + Main.teleportCooldown + " seconds.");
             return true;
         }
 
-        int wildRadius = 0;
+        int teleportCooldown = 0;
 
         try {
-            wildRadius = Integer.parseInt(args[0]);
-            if (wildRadius < 0) {
+            teleportCooldown = Integer.parseInt(args[0]);
+            if (teleportCooldown < 0) {
                 Broadcasting.sendErrorResponse(sender, "Please enter a valid integer.");
                 return true;
             }
@@ -35,8 +35,8 @@ public class CommandSetWildRadius implements CommandExecutor {
             return true;
         }
 
-        Main.getPlugin().setWildRadius(wildRadius);
-        Broadcasting.sendSuccessResponse(sender, "Set wild radius to " + wildRadius + " blocks.");
+        Main.getPlugin().setTeleportCooldown(teleportCooldown);
+        Broadcasting.sendSuccessResponse(sender, "Set teleport cooldown to " + teleportCooldown + " seconds.");
         return true;
     }
 }

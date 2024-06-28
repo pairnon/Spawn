@@ -8,6 +8,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import io.papermc.spawn.commands.CommandRemoveWarnRadius;
 import io.papermc.spawn.commands.CommandSetSpawn;
+import io.papermc.spawn.commands.CommandSetTeleportCooldown;
 import io.papermc.spawn.commands.CommandSetWarnRadius;
 import io.papermc.spawn.commands.CommandSetWildRadius;
 import io.papermc.spawn.commands.CommandSpawn;
@@ -39,6 +40,7 @@ public class Main extends JavaPlugin implements Listener {
         this.saveDefaultConfig();
         config = this.getConfig();
         wildRadius = config.getInt("rtp-radius");
+        teleportCooldown = config.getInt("tp-cooldown");
         
         Broadcasting.initializeMessageQueue();
 
@@ -52,11 +54,18 @@ public class Main extends JavaPlugin implements Listener {
         this.getCommand("spawn").setExecutor(new CommandSpawn());
         this.getCommand("wild").setExecutor(new CommandWild());
         this.getCommand("setwildradius").setExecutor(new CommandSetWildRadius());
+        this.getCommand("setteleportcooldown").setExecutor(new CommandSetTeleportCooldown());
     }
 
     public void setWildRadius(int blocks) {
         config.set("rtp-radius", blocks);
         this.saveConfig();
         wildRadius = config.getInt("rtp-radius");
-    }   
+    }
+
+    public void setTeleportCooldown(int seconds) {
+        config.set("tp-cooldown", seconds);
+        this.saveConfig();
+        teleportCooldown = config.getInt("tp-cooldown");
+    }
 }
