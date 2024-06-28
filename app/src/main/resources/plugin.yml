@@ -1,5 +1,5 @@
 name: Spawn
-version: 1.0.2
+version: 1.0.3
 main: io.papermc.spawn.Main
 description: Spawn plugin
 author: pairnon
