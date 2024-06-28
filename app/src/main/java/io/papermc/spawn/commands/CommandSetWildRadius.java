@@ -13,7 +13,7 @@ public class CommandSetWildRadius implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
         if (!sender.hasPermission("minecraft.op")) {
-            Broadcasting.sendErrorResponse(sender, "You do not have access to this command.");
+            Broadcasting.sendPermissionsErrorResponse(sender);
             return true;
         }
 

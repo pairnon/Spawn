@@ -51,6 +51,14 @@ public class Broadcasting {
         c.sendMessage(Component.text(message, NamedTextColor.GREEN));
     }
     
+    public static void sendConsoleErrorResponse(CommandSender c) {
+        sendErrorResponse(c, "You cannot execute this command from the server console.");
+    }
+
+    public static void sendPermissionsErrorResponse(CommandSender c) {
+        sendErrorResponse(c, "You do not have access to this command.");
+    }
+    
     public static void sendErrorResponse(CommandSender c, String message) {
         c.sendMessage(Component.text(message, NamedTextColor.RED));
     }

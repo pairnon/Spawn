@@ -20,7 +20,7 @@ public class CommandSpawn implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
         if (!(sender instanceof Player)) {
-            Broadcasting.sendErrorResponse(sender, "You cannot execute this command from the server console.");
+            Broadcasting.sendConsoleErrorResponse(sender);
             return true;
         }
         

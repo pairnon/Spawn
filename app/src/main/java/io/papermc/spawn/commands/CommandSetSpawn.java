@@ -20,12 +20,12 @@ public class CommandSetSpawn implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
         if (!sender.hasPermission("minecraft.op")) {
-            Broadcasting.sendErrorResponse(sender, "You do not have access to this command.");
+            Broadcasting.sendPermissionsErrorResponse(sender);
             return true;
         }
 
         if (!(sender instanceof Player)) {
-            Broadcasting.sendErrorResponse(sender, "You cannot execute this command from the server console.");
+            Broadcasting.sendConsoleErrorResponse(sender);
             return true;
         }
 
