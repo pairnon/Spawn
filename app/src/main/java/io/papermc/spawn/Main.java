@@ -41,6 +41,8 @@ public class Main extends JavaPlugin implements Listener {
         
         Broadcasting.initializeMessageQueue();
 
+        Cooldown.startCooldownLoop();
+
         getServer().getPluginManager().registerEvents(new PlayerMoveListener(), this);
 
         this.getCommand("setspawn").setExecutor(new CommandSetSpawn());
