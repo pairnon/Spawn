@@ -59,6 +59,5 @@ public class CommandSetWarnRadius implements CommandExecutor {
             return -1;
         }
         return pdc.get(new NamespacedKey(Main.getPlugin(), "warningRadius"), PersistentDataType.INTEGER);    
-    }
-    
+    }   
 }

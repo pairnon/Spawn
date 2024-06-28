@@ -22,7 +22,6 @@ public class CommandWild implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
-
         if (!(sender instanceof Player)) {
             Broadcasting.sendErrorResponse(sender, "You cannot execute this command from the server console.");
             return true;
@@ -47,21 +46,17 @@ public class CommandWild implements CommandExecutor {
             return true;
         }
 
-
         Location location = getSafeRandomLocation(world);
         if (location == null) {
             Broadcasting.sendErrorResponse(player, "Could not find a safe location.");
             return true;
         }
-        location.setY(location.getY() + 1);
-        player.teleport(location);
         
+        location.setY(location.getY() + 1); // prevent teleportation into the ground
+        player.teleport(location);
         Broadcasting.sendSuccessResponse(player, "Teleported you to a random location.");
-
         playerPdc.set(new NamespacedKey(Main.getPlugin(), "teleportcooldown"), PersistentDataType.INTEGER, Main.teleportCooldown);
-
         return true;
-
     }
 
     private Location getSafeRandomLocation(World world) {
@@ -106,6 +101,5 @@ public class CommandWild implements CommandExecutor {
             yCounter--;
         }
         return null;
-    }
-    
+    }   
 }

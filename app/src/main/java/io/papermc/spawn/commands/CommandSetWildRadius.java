@@ -36,11 +36,7 @@ public class CommandSetWildRadius implements CommandExecutor {
         }
 
         Main.getPlugin().setWildRadius(wildRadius);
-
         Broadcasting.sendSuccessResponse(sender, "Set wild radius to " + wildRadius + " blocks.");
-
-
         return true;
-    }
-    
+    }   
 }

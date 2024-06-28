@@ -47,18 +47,14 @@ public class CommandSpawn implements CommandExecutor {
             return true;
         }
 
-        double x = worldPdc.get(new NamespacedKey(Main.getPlugin(), "spawncoordx"), PersistentDataType.DOUBLE);
-        double y = worldPdc.get(new NamespacedKey(Main.getPlugin(), "spawncoordy"), PersistentDataType.DOUBLE);
-        double z = worldPdc.get(new NamespacedKey(Main.getPlugin(), "spawncoordz"), PersistentDataType.DOUBLE);
+        double spawnCoordX = worldPdc.get(new NamespacedKey(Main.getPlugin(), "spawncoordx"), PersistentDataType.DOUBLE);
+        double spawnCoordY = worldPdc.get(new NamespacedKey(Main.getPlugin(), "spawncoordy"), PersistentDataType.DOUBLE);
+        double spawnCoordZ = worldPdc.get(new NamespacedKey(Main.getPlugin(), "spawncoordz"), PersistentDataType.DOUBLE);
 
-        Location loc = new Location(world, x, y, z);
-
+        Location loc = new Location(world, spawnCoordX, spawnCoordY, spawnCoordZ);
         player.teleport(loc);
         Broadcasting.sendSuccessResponse(player, "Teleported you to spawn!");
-
         playerPdc.set(new NamespacedKey(Main.getPlugin(), "teleportcooldown"), PersistentDataType.INTEGER, Main.teleportCooldown);
-
         return true;
-    }
-    
+    }   
 }

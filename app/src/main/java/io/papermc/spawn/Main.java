@@ -57,6 +57,5 @@ public class Main extends JavaPlugin implements Listener {
     public void setWildRadius(int blocks) {
         config.set("rtp-radius", blocks);
         wildRadius = config.getInt("rtp-radius");
-    }
-    
+    }   
 }

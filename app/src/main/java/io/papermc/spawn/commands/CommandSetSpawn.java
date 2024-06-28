@@ -54,12 +54,7 @@ public class CommandSetSpawn implements CommandExecutor {
         }
 
         String coords = (int)loc.getX() + ", " + (int)loc.getY() + ", " + (int)loc.getZ();
-
         Broadcasting.sendSuccessResponse(player, "Set server spawn to " + coords + ".");
-
-
-
         return true;
     }
-
 }

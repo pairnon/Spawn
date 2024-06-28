@@ -73,6 +73,5 @@ public class Message {
         } else {
             player.sendMessage(Component.text(text, NamedTextColor.GOLD));
         }
-    }
-    
+    }   
 }

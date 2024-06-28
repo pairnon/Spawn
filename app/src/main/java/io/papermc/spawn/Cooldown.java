@@ -14,9 +14,7 @@ public class Cooldown {
         new BukkitRunnable() {
             @Override
             public void run() {
-
                 for (Player player : Bukkit.getOnlinePlayers()) {
-
                     PersistentDataContainer playerPdc = player.getPersistentDataContainer();
                     if (playerPdc.has(new NamespacedKey(Main.getPlugin(), "teleportcooldown"))) {
                         int teleportCooldown = playerPdc.get(new NamespacedKey(Main.getPlugin(), "teleportcooldown"), PersistentDataType.INTEGER);
@@ -30,5 +28,4 @@ public class Cooldown {
             }
         }.runTaskTimer(JavaPlugin.getPlugin(Main.class), 0L, 20L);
     }
-
 }

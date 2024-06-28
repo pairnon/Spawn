@@ -34,7 +34,6 @@ public class CommandRemoveWarnRadius implements CommandExecutor {
         int warningRadius = pdc.get(new NamespacedKey(Main.getPlugin(), "warningRadius"), PersistentDataType.INTEGER);
         pdc.remove(new NamespacedKey(Main.getPlugin(), "warningRadius"));
         Broadcasting.sendMessageResponse(sender, "The warning radius of size " + warningRadius + " has been removed.");
-
         return true;
     }
 }
