@@ -28,3 +28,6 @@ commands:
   setteleportcooldown:
     description: Set teleport cooldown in seconds
     usage: setteleportcooldown <seconds>
+  getspawnconfig:
+    description: Get plugin configuration
+    usage: getspawnconfig

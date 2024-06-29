@@ -6,6 +6,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import io.papermc.spawn.commands.CommandGetSpawnConfig;
 import io.papermc.spawn.commands.CommandRemoveWarnRadius;
 import io.papermc.spawn.commands.CommandSetSpawn;
 import io.papermc.spawn.commands.CommandSetTeleportCooldown;
@@ -55,6 +56,7 @@ public class Main extends JavaPlugin implements Listener {
         this.getCommand("wild").setExecutor(new CommandWild());
         this.getCommand("setwildradius").setExecutor(new CommandSetWildRadius());
         this.getCommand("setteleportcooldown").setExecutor(new CommandSetTeleportCooldown());
+        this.getCommand("getspawnconfig").setExecutor(new CommandGetSpawnConfig());
     }
 
     public void setWildRadius(int blocks) {
