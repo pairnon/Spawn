@@ -24,6 +24,10 @@ public class CommandWarnRadius implements CommandExecutor {
 
         if (args.length==0) {
             int warningRadius = getWarningRadius();
+            if (warningRadius < 0) {
+                Broadcasting.sendErrorResponse(sender, "The warning radius has not been set.");
+                return true;
+            }
             Broadcasting.sendMessageResponse(sender, "Warning radius is currently configured to " + warningRadius + " blocks.");
             return true;
         }
