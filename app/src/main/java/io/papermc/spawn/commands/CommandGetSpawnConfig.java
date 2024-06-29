@@ -18,7 +18,7 @@ public class CommandGetSpawnConfig implements CommandExecutor {
         }
 
         Broadcasting.sendSuccessResponse(sender, "[ Spawn plugin configuration ]");
-        Broadcasting.sendMessageResponse(sender, "RTP radius: " + Main.wildRadius);
+        Broadcasting.sendMessageResponse(sender, "RTP radius: " + Main.rtpRadius);
         Broadcasting.sendMessageResponse(sender, "Teleport cooldown: " + Main.teleportCooldown);
         return true;
     }

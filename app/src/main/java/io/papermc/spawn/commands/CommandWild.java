@@ -72,14 +72,14 @@ public class CommandWild implements CommandExecutor {
             }
             possibleLocation = getRandomLocation(world);
             counter++;
-        } while (counter < Main.WILD_COMMAND_MAX_TRIES);
+        } while (counter < Main.RTP_MAX_TRIES);
         return null;
     }
 
     private Location getRandomLocation(World world) {
         Random rand = new Random();
-        int randomX = rand.nextInt((Main.wildRadius * 2) + 1) - Main.wildRadius;
-        int randomZ = rand.nextInt((Main.wildRadius * 2) + 1) - Main.wildRadius;
+        int randomX = rand.nextInt((Main.rtpRadius * 2) + 1) - Main.rtpRadius;
+        int randomZ = rand.nextInt((Main.rtpRadius * 2) + 1) - Main.rtpRadius;
         
         Location randomLocation = new Location(world, randomX, 0, randomZ);
         Location surfaceLocation = getSurfaceLocation(randomLocation);

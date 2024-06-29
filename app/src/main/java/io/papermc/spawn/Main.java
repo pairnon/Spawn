@@ -21,10 +21,10 @@ public class Main extends JavaPlugin implements Listener {
     private static Main plugin;
 
     public static final int MAX_BUILD_HEIGHT = 319;
-    public static final int WILD_COMMAND_MAX_TRIES = 50;
+    public static final int RTP_MAX_TRIES = 50;
     public static final Material[] UNSAFE_MATERIALS = {Material.WATER, Material.LAVA};
 
-    public static int wildRadius;
+    public static int rtpRadius;
     public static int teleportCooldown;
     
     private FileConfiguration config;
@@ -40,7 +40,7 @@ public class Main extends JavaPlugin implements Listener {
 
         this.saveDefaultConfig();
         config = this.getConfig();
-        wildRadius = config.getInt("rtp-radius");
+        rtpRadius = config.getInt("rtp-radius");
         teleportCooldown = config.getInt("tp-cooldown");
         
         Broadcasting.initializeMessageQueue();
@@ -59,10 +59,10 @@ public class Main extends JavaPlugin implements Listener {
         this.getCommand("getspawnconfig").setExecutor(new CommandGetSpawnConfig());
     }
 
-    public void setWildRadius(int blocks) {
+    public void setRtpRadius(int blocks) {
         config.set("rtp-radius", blocks);
         this.saveConfig();
-        wildRadius = config.getInt("rtp-radius");
+        rtpRadius = config.getInt("rtp-radius");
     }
 
     public void setTeleportCooldown(int seconds) {

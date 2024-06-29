@@ -18,15 +18,15 @@ public class CommandSetWildRadius implements CommandExecutor {
         }
 
         if (args.length==0) {
-            Broadcasting.sendMessageResponse(sender, "Wild radius is currently configured to " + Main.wildRadius + " blocks.");
+            Broadcasting.sendMessageResponse(sender, "Wild radius is currently configured to " + Main.rtpRadius + " blocks.");
             return true;
         }
 
-        int wildRadius = 0;
+        int rtpRadius = 0;
 
         try {
-            wildRadius = Integer.parseInt(args[0]);
-            if (wildRadius < 0) {
+            rtpRadius = Integer.parseInt(args[0]);
+            if (rtpRadius < 0) {
                 Broadcasting.sendErrorResponse(sender, "Please enter a valid integer.");
                 return true;
             }
@@ -35,8 +35,8 @@ public class CommandSetWildRadius implements CommandExecutor {
             return true;
         }
 
-        Main.getPlugin().setWildRadius(wildRadius);
-        Broadcasting.sendSuccessResponse(sender, "Set wild radius to " + wildRadius + " blocks.");
+        Main.getPlugin().setRtpRadius(rtpRadius);
+        Broadcasting.sendSuccessResponse(sender, "Set wild radius to " + rtpRadius + " blocks.");
         return true;
     }
 }
