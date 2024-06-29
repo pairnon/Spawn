@@ -7,7 +7,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import io.papermc.spawn.commands.CommandSpawnConfig;
-import io.papermc.spawn.commands.CommandRemoveWarnRadius;
+import io.papermc.spawn.commands.CommandDisableSpawnWarn;
 import io.papermc.spawn.commands.CommandSetSpawn;
 import io.papermc.spawn.commands.CommandTeleportCooldown;
 import io.papermc.spawn.commands.CommandWarnRadius;
@@ -51,7 +51,7 @@ public class Main extends JavaPlugin implements Listener {
 
         this.getCommand("setspawn").setExecutor(new CommandSetSpawn());
         this.getCommand("warnradius").setExecutor(new CommandWarnRadius());
-        this.getCommand("removewarnradius").setExecutor(new CommandRemoveWarnRadius());
+        this.getCommand("disablespawnwarn").setExecutor(new CommandDisableSpawnWarn());
         this.getCommand("spawn").setExecutor(new CommandSpawn());
         this.getCommand("rtp").setExecutor(new CommandRTP());
         this.getCommand("rtpradius").setExecutor(new CommandRTPRadius());

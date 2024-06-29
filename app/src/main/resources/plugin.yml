@@ -12,9 +12,9 @@ commands:
   warnradius:
     description: Configure warning radius in blocks from spawn
     usage: warnradius <blocks>
-  removewarnradius:
-    description: Remove the spawn warning radius
-    usage: removewarnradius
+  disablespawnwarn:
+    description: Disable spawn region warning
+    usage: disablespawnwarn
   spawn:
     description: Teleport to spawn
     usage: spawn

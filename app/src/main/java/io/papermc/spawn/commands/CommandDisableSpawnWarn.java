@@ -12,7 +12,7 @@ import org.bukkit.persistence.PersistentDataType;
 import io.papermc.spawn.Broadcasting;
 import io.papermc.spawn.Main;
 
-public class CommandRemoveWarnRadius implements CommandExecutor {
+public class CommandDisableSpawnWarn implements CommandExecutor {
     
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
