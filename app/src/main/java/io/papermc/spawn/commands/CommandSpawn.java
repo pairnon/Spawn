@@ -44,6 +44,7 @@ public class CommandSpawn implements CommandExecutor {
             Location defaultSpawnLocation = world.getSpawnLocation();
             player.teleport(defaultSpawnLocation);
             Broadcasting.sendSuccessResponse(player, "Teleported you to spawn!");
+            resetPlayerTeleportCooldown(playerPdc);
             return true;
         }
 
@@ -54,7 +55,11 @@ public class CommandSpawn implements CommandExecutor {
         Location loc = new Location(world, spawnCoordX, spawnCoordY, spawnCoordZ);
         player.teleport(loc);
         Broadcasting.sendSuccessResponse(player, "Teleported you to spawn!");
-        playerPdc.set(new NamespacedKey(Main.getPlugin(), "teleportcooldown"), PersistentDataType.INTEGER, Main.teleportCooldown);
+        resetPlayerTeleportCooldown(playerPdc);
         return true;
-    }   
+    }
+
+    private void resetPlayerTeleportCooldown(PersistentDataContainer p) {
+        p.set(new NamespacedKey(Main.getPlugin(), "teleportcooldown"), PersistentDataType.INTEGER, Main.teleportCooldown);
+    }
 }
