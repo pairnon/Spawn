@@ -23,8 +23,8 @@ public class Main extends JavaPlugin implements Listener {
     public static final int WILD_COMMAND_MAX_TRIES = 50;
     public static final Material[] UNSAFE_MATERIALS = {Material.WATER, Material.LAVA};
 
-    public static int wildRadius = 0;
-    public static int teleportCooldown = 5;
+    public static int wildRadius;
+    public static int teleportCooldown;
     
     private FileConfiguration config;
 
