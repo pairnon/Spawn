@@ -6,12 +6,12 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import io.papermc.spawn.commands.CommandGetSpawnConfig;
+import io.papermc.spawn.commands.CommandSpawnConfig;
 import io.papermc.spawn.commands.CommandRemoveWarnRadius;
 import io.papermc.spawn.commands.CommandSetSpawn;
-import io.papermc.spawn.commands.CommandSetTeleportCooldown;
-import io.papermc.spawn.commands.CommandSetWarnRadius;
-import io.papermc.spawn.commands.CommandSetRTPRadius;
+import io.papermc.spawn.commands.CommandTeleportCooldown;
+import io.papermc.spawn.commands.CommandWarnRadius;
+import io.papermc.spawn.commands.CommandRTPRadius;
 import io.papermc.spawn.commands.CommandSpawn;
 import io.papermc.spawn.commands.CommandRTP;
 import io.papermc.spawn.listeners.PlayerMoveListener;
@@ -50,13 +50,13 @@ public class Main extends JavaPlugin implements Listener {
         getServer().getPluginManager().registerEvents(new PlayerMoveListener(), this);
 
         this.getCommand("setspawn").setExecutor(new CommandSetSpawn());
-        this.getCommand("setwarnradius").setExecutor(new CommandSetWarnRadius());
+        this.getCommand("warnradius").setExecutor(new CommandWarnRadius());
         this.getCommand("removewarnradius").setExecutor(new CommandRemoveWarnRadius());
         this.getCommand("spawn").setExecutor(new CommandSpawn());
         this.getCommand("rtp").setExecutor(new CommandRTP());
-        this.getCommand("setrtpradius").setExecutor(new CommandSetRTPRadius());
-        this.getCommand("setteleportcooldown").setExecutor(new CommandSetTeleportCooldown());
-        this.getCommand("getspawnconfig").setExecutor(new CommandGetSpawnConfig());
+        this.getCommand("rtpradius").setExecutor(new CommandRTPRadius());
+        this.getCommand("teleportcooldown").setExecutor(new CommandTeleportCooldown());
+        this.getCommand("spawnconfig").setExecutor(new CommandSpawnConfig());
     }
 
     public void setRtpRadius(int blocks) {

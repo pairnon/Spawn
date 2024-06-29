@@ -9,7 +9,7 @@ commands:
   setspawn:
     description: Set server spawn point
     usage: setspawn
-  setwarnradius:
+  warnradius:
     description: Set warning radius in blocks from spawn
     usage: setwarnradius <blocks>
   removewarnradius:
@@ -22,12 +22,12 @@ commands:
     description: Teleport to random location
     usage: rtp
     aliases: [wild]
-  setrtpradius:
+  rtpradius:
     description: Set /rtp radius in blocks from spawn
     usage: setrtpradius <blocks>
-  setteleportcooldown:
+  teleportcooldown:
     description: Set teleport cooldown in seconds
     usage: setteleportcooldown <seconds>
-  getspawnconfig:
+  spawnconfig:
     description: Get plugin configuration
     usage: getspawnconfig

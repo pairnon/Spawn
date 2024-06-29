@@ -7,7 +7,7 @@ import org.bukkit.command.CommandSender;
 import io.papermc.spawn.Broadcasting;
 import io.papermc.spawn.Main;
 
-public class CommandGetSpawnConfig implements CommandExecutor {
+public class CommandSpawnConfig implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {

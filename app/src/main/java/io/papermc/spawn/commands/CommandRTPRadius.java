@@ -7,7 +7,7 @@ import org.bukkit.command.CommandSender;
 import io.papermc.spawn.Broadcasting;
 import io.papermc.spawn.Main;
 
-public class CommandSetTeleportCooldown implements CommandExecutor {
+public class CommandRTPRadius implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -18,15 +18,15 @@ public class CommandSetTeleportCooldown implements CommandExecutor {
         }
 
         if (args.length==0) {
-            Broadcasting.sendMessageResponse(sender, "Teleport cooldown is currently configured to " + Main.teleportCooldown + " seconds.");
+            Broadcasting.sendMessageResponse(sender, "RTP radius is currently configured to " + Main.rtpRadius + " blocks.");
             return true;
         }
 
-        int teleportCooldown = 0;
+        int rtpRadius = 0;
 
         try {
-            teleportCooldown = Integer.parseInt(args[0]);
-            if (teleportCooldown < 0) {
+            rtpRadius = Integer.parseInt(args[0]);
+            if (rtpRadius < 0) {
                 Broadcasting.sendErrorResponse(sender, "Please enter a valid integer.");
                 return true;
             }
@@ -35,8 +35,8 @@ public class CommandSetTeleportCooldown implements CommandExecutor {
             return true;
         }
 
-        Main.getPlugin().setTeleportCooldown(teleportCooldown);
-        Broadcasting.sendSuccessResponse(sender, "Set teleport cooldown to " + teleportCooldown + " seconds.");
+        Main.getPlugin().setRtpRadius(rtpRadius);
+        Broadcasting.sendSuccessResponse(sender, "Set RTP radius to " + rtpRadius + " blocks.");
         return true;
     }
 }
