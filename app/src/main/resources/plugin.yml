@@ -18,13 +18,13 @@ commands:
   spawn:
     description: Teleport to spawn
     usage: spawn
-  wild:
+  rtp:
     description: Teleport to random location
-    usage: wild
-    aliases: [rtp]
-  setwildradius:
-    description: Set /wild radius in blocks from spawn
-    usage: setwildradius <blocks>
+    usage: rtp
+    aliases: [wild]
+  setrtpradius:
+    description: Set /rtp radius in blocks from spawn
+    usage: setrtpradius <blocks>
   setteleportcooldown:
     description: Set teleport cooldown in seconds
     usage: setteleportcooldown <seconds>

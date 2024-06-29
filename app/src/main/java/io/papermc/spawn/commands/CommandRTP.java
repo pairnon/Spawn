@@ -17,7 +17,7 @@ import org.bukkit.persistence.PersistentDataType;
 import io.papermc.spawn.Broadcasting;
 import io.papermc.spawn.Main;
 
-public class CommandWild implements CommandExecutor {
+public class CommandRTP implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {

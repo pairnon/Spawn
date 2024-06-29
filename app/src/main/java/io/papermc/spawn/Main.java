@@ -11,9 +11,9 @@ import io.papermc.spawn.commands.CommandRemoveWarnRadius;
 import io.papermc.spawn.commands.CommandSetSpawn;
 import io.papermc.spawn.commands.CommandSetTeleportCooldown;
 import io.papermc.spawn.commands.CommandSetWarnRadius;
-import io.papermc.spawn.commands.CommandSetWildRadius;
+import io.papermc.spawn.commands.CommandSetRTPRadius;
 import io.papermc.spawn.commands.CommandSpawn;
-import io.papermc.spawn.commands.CommandWild;
+import io.papermc.spawn.commands.CommandRTP;
 import io.papermc.spawn.listeners.PlayerMoveListener;
 
 public class Main extends JavaPlugin implements Listener {
@@ -53,8 +53,8 @@ public class Main extends JavaPlugin implements Listener {
         this.getCommand("setwarnradius").setExecutor(new CommandSetWarnRadius());
         this.getCommand("removewarnradius").setExecutor(new CommandRemoveWarnRadius());
         this.getCommand("spawn").setExecutor(new CommandSpawn());
-        this.getCommand("wild").setExecutor(new CommandWild());
-        this.getCommand("setwildradius").setExecutor(new CommandSetWildRadius());
+        this.getCommand("rtp").setExecutor(new CommandRTP());
+        this.getCommand("setrtpradius").setExecutor(new CommandSetRTPRadius());
         this.getCommand("setteleportcooldown").setExecutor(new CommandSetTeleportCooldown());
         this.getCommand("getspawnconfig").setExecutor(new CommandGetSpawnConfig());
     }

@@ -7,7 +7,7 @@ import org.bukkit.command.CommandSender;
 import io.papermc.spawn.Broadcasting;
 import io.papermc.spawn.Main;
 
-public class CommandSetWildRadius implements CommandExecutor {
+public class CommandSetRTPRadius implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -18,7 +18,7 @@ public class CommandSetWildRadius implements CommandExecutor {
         }
 
         if (args.length==0) {
-            Broadcasting.sendMessageResponse(sender, "Wild radius is currently configured to " + Main.rtpRadius + " blocks.");
+            Broadcasting.sendMessageResponse(sender, "RTP radius is currently configured to " + Main.rtpRadius + " blocks.");
             return true;
         }
 
@@ -36,7 +36,7 @@ public class CommandSetWildRadius implements CommandExecutor {
         }
 
         Main.getPlugin().setRtpRadius(rtpRadius);
-        Broadcasting.sendSuccessResponse(sender, "Set wild radius to " + rtpRadius + " blocks.");
+        Broadcasting.sendSuccessResponse(sender, "Set RTP radius to " + rtpRadius + " blocks.");
         return true;
     }
 }
