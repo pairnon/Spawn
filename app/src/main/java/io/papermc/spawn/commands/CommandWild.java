@@ -55,8 +55,12 @@ public class CommandWild implements CommandExecutor {
         location.setY(location.getY() + 1); // prevent teleportation into the ground
         player.teleport(location);
         Broadcasting.sendSuccessResponse(player, "Teleported you to a random location.");
-        playerPdc.set(new NamespacedKey(Main.getPlugin(), "teleportcooldown"), PersistentDataType.INTEGER, Main.teleportCooldown);
+        resetPlayerTeleportCooldown(playerPdc);
         return true;
+    }
+
+    private void resetPlayerTeleportCooldown(PersistentDataContainer p) {
+        p.set(new NamespacedKey(Main.getPlugin(), "teleportcooldown"), PersistentDataType.INTEGER, Main.teleportCooldown);
     }
 
     private Location getSafeRandomLocation(World world) {
