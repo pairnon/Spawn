@@ -7,7 +7,7 @@ website: https://github.com/pairnon/Spawn
 api-version: '1.20'
 commands:
   setspawn:
-    description: Set server spawn point
+    description: Set the server spawn point
     usage: setspawn
   warnradius:
     description: Configure warning radius in blocks from spawn
@@ -19,7 +19,7 @@ commands:
     description: Teleport to spawn
     usage: spawn
   rtp:
-    description: Teleport to random location
+    description: Teleport to a random location
     usage: rtp
     aliases: [wild]
   rtpradius:
@@ -29,5 +29,5 @@ commands:
     description: Configure teleport cooldown in seconds
     usage: teleportcooldown <seconds>
   spawnconfig:
-    description: Get plugin configuration
+    description: View plugin configuration
     usage: spawnconfig
