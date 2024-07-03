@@ -4,7 +4,7 @@ main: io.papermc.spawn.Main
 description: Spawn plugin
 author: pairnon
 website: https://github.com/pairnon/Spawn
-api-version: '1.20'
+api-version: '1.21'
 commands:
   setspawn:
     description: Set the server spawn point
